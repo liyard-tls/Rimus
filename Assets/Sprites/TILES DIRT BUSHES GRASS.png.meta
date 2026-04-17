@@ -1,0 +1,768 @@
+fileFormatVersion: 2
+guid: afb68d3b26ba943198d0a548f8692c53
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 0
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: iOS
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_0
+      rect:
+        serializedVersion: 2
+        x: 117
+        y: 569
+        width: 106
+        height: 151
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 480ff894b3cc34a6d81f34225fdbde1d
+      internalID: 1364048131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_1
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 566
+        width: 87
+        height: 152
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3990c99d315b645179ff3c57169266e8
+      internalID: 1287535814
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_2
+      rect:
+        serializedVersion: 2
+        x: 393
+        y: 569
+        width: 72
+        height: 140
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4576fd509abfb49909618262d4c57d08
+      internalID: 2091731336
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_3
+      rect:
+        serializedVersion: 2
+        x: 501
+        y: 599
+        width: 63
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81ba082dbfab441a6b130ee4a95c3326
+      internalID: 1300656263
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_4
+      rect:
+        serializedVersion: 2
+        x: 598
+        y: 604
+        width: 67
+        height: 98
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5eb1620baab34589afb126c42dbe025
+      internalID: 388316164
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_5
+      rect:
+        serializedVersion: 2
+        x: 693
+        y: 638
+        width: 30
+        height: 20
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91801cbedd1a44d12a0b45711025b497
+      internalID: -814279469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_6
+      rect:
+        serializedVersion: 2
+        x: 738
+        y: 638
+        width: 20
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b5d3d757eb8a4a759c43aed56d19994
+      internalID: 38142255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_7
+      rect:
+        serializedVersion: 2
+        x: 783
+        y: 639
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce975d0e7c0f047e5ab6bad98f8e637a
+      internalID: -55832342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_8
+      rect:
+        serializedVersion: 2
+        x: 689
+        y: 604
+        width: 23
+        height: 19
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f8b785c22fba249408cc6477f24267e1
+      internalID: 729446390
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_9
+      rect:
+        serializedVersion: 2
+        x: 739
+        y: 605
+        width: 18
+        height: 14
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7e8e8f4d15ed64f589a8ad35df3a0768
+      internalID: -1189811633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_10
+      rect:
+        serializedVersion: 2
+        x: 794
+        y: 609
+        width: 16
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93ca2fedd5f0c4c25a9f561381e8c95a
+      internalID: 564368321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_11
+      rect:
+        serializedVersion: 2
+        x: 287
+        y: 413
+        width: 137
+        height: 90
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ba8cc43a579e45c4a4e1795d6a0e945
+      internalID: 1740386231
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_14
+      rect:
+        serializedVersion: 2
+        x: 452
+        y: 387
+        width: 143
+        height: 85
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 049665c9942774d4a8e012ac82424635
+      internalID: 1161639387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_15
+      rect:
+        serializedVersion: 2
+        x: 1086
+        y: 260
+        width: 355
+        height: 197
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2f657a168e164321b911d8b1f87d553
+      internalID: -44103131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_16
+      rect:
+        serializedVersion: 2
+        x: 1190
+        y: 451
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ebf9b95e15fe43ffaf47907c3714082
+      internalID: 1161216885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_17
+      rect:
+        serializedVersion: 2
+        x: 1227
+        y: 453
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd86137d7cc4b47f1bf2d48d90891eb3
+      internalID: -1349034417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_18
+      rect:
+        serializedVersion: 2
+        x: 118
+        y: 371
+        width: 141
+        height: 81
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95851e257129c43a1869373499e4105d
+      internalID: -792481674
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_19
+      rect:
+        serializedVersion: 2
+        x: 700
+        y: 252
+        width: 355
+        height: 200
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35599e0c9921d496194a8f260a7e7d0d
+      internalID: -1229090501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_20
+      rect:
+        serializedVersion: 2
+        x: 89
+        y: 245
+        width: 127
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 837aaa9ddbd5b407abe1607a7f43da58
+      internalID: -676125912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_22
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 234
+        width: 192
+        height: 106
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4f7a2ed58b05241cc85605c63169e604
+      internalID: -1727481549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_23
+      rect:
+        serializedVersion: 2
+        x: 487
+        y: 247
+        width: 127
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9b8ac6f4b50cf45a68c5fcf65c027e3a
+      internalID: -1258702491
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_29
+      rect:
+        serializedVersion: 2
+        x: 883
+        y: 250
+        width: 10
+        height: 5
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd033a2ddc0d44a4a7a2d2a3e66d40d
+      internalID: -1975619135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_30
+      rect:
+        serializedVersion: 2
+        x: 1234
+        y: 248
+        width: 27
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 674452429c9fc4ecbb18ace3a9f4ce06
+      internalID: 481415850
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_31
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 254
+        width: 18
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1d7660f1e7ff47999c60d047a0c4684
+      internalID: 1704740881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_32
+      rect:
+        serializedVersion: 2
+        x: 469
+        y: 133
+        width: 150
+        height: 100
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92bda7c836ced40a88a731f451659185
+      internalID: 1322123371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_34
+      rect:
+        serializedVersion: 2
+        x: 91
+        y: 127
+        width: 140
+        height: 92
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d126ea2a9b324962b4d68e36ddbb841
+      internalID: -178059115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: TILES DIRT BUSHES GRASS_37
+      rect:
+        serializedVersion: 2
+        x: 281
+        y: 61
+        width: 145
+        height: 94
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e148539c5cd7a471b910331e202af657
+      internalID: -727687858
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 4040d7959f9b148178eacf5f21d7386e
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries:
+      - key: SpriteEditor.SliceSettings
+        value: '{"sliceOnImport":false,"gridCellCount":{"x":1.0,"y":1.0},"gridSpriteSize":{"x":64.0,"y":64.0},"gridSpriteOffset":{"x":0.0,"y":0.0},"gridSpritePadding":{"x":0.0,"y":0.0},"pivot":{"x":0.5,"y":0.5},"pivotPixels":{"x":0.0,"y":0.0},"autoSlicingMethod":0,"spriteAlignment":0,"pivotUnitMode":0,"slicingType":0,"keepEmptyRects":false,"isAlternate":false}'
+    nameFileIdTable:
+      TILES DIRT BUSHES GRASS_0: 1364048131
+      TILES DIRT BUSHES GRASS_1: 1287535814
+      TILES DIRT BUSHES GRASS_10: 564368321
+      TILES DIRT BUSHES GRASS_11: 1740386231
+      TILES DIRT BUSHES GRASS_12: -358043306
+      TILES DIRT BUSHES GRASS_13: -1805989552
+      TILES DIRT BUSHES GRASS_14: 1161639387
+      TILES DIRT BUSHES GRASS_15: -44103131
+      TILES DIRT BUSHES GRASS_16: 1161216885
+      TILES DIRT BUSHES GRASS_17: -1349034417
+      TILES DIRT BUSHES GRASS_18: -792481674
+      TILES DIRT BUSHES GRASS_19: -1229090501
+      TILES DIRT BUSHES GRASS_2: 2091731336
+      TILES DIRT BUSHES GRASS_20: -676125912
+      TILES DIRT BUSHES GRASS_21: 285332546
+      TILES DIRT BUSHES GRASS_22: -1727481549
+      TILES DIRT BUSHES GRASS_23: -1258702491
+      TILES DIRT BUSHES GRASS_24: 152241703
+      TILES DIRT BUSHES GRASS_25: 1072409833
+      TILES DIRT BUSHES GRASS_26: 433500985
+      TILES DIRT BUSHES GRASS_27: -209087727
+      TILES DIRT BUSHES GRASS_28: -872477312
+      TILES DIRT BUSHES GRASS_29: -1975619135
+      TILES DIRT BUSHES GRASS_3: 1300656263
+      TILES DIRT BUSHES GRASS_30: 481415850
+      TILES DIRT BUSHES GRASS_31: 1704740881
+      TILES DIRT BUSHES GRASS_32: 1322123371
+      TILES DIRT BUSHES GRASS_33: -639172653
+      TILES DIRT BUSHES GRASS_34: -178059115
+      TILES DIRT BUSHES GRASS_35: -1010617676
+      TILES DIRT BUSHES GRASS_36: -1392307243
+      TILES DIRT BUSHES GRASS_37: -727687858
+      TILES DIRT BUSHES GRASS_38: -806246739
+      TILES DIRT BUSHES GRASS_39: 551531314
+      TILES DIRT BUSHES GRASS_4: 388316164
+      TILES DIRT BUSHES GRASS_40: -1731900658
+      TILES DIRT BUSHES GRASS_41: 883071409
+      TILES DIRT BUSHES GRASS_5: -814279469
+      TILES DIRT BUSHES GRASS_6: 38142255
+      TILES DIRT BUSHES GRASS_7: -55832342
+      TILES DIRT BUSHES GRASS_8: 729446390
+      TILES DIRT BUSHES GRASS_9: -1189811633
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

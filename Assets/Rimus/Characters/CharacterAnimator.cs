@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using Rimus.Scripts.Tools;
+using UnityEngine;
+
+namespace Rimus.Characters
+{
+    [Serializable]
+    public struct CharacterAnimation
+    {
+        public string Id;
+        public Sprite[] Sprites;
+        public float Duration;
+        public bool Loop;
+    }
+    
+    public class CharacterAnimator : MonoBehaviour
+    {
+        [SerializeField] private SpriteAnimator _spriteAnimator;
+        [SerializeField] private CharacterAnimation[] _animations;
+        
+        private Dictionary<string, CharacterAnimation> _animationDict;
+
+        private void Awake()
+        {
+            _spriteAnimator ??= GetComponent<SpriteAnimator>();
+            _animationDict = new Dictionary<string, CharacterAnimation>();
+            foreach (var anim in _animations)
+            {
+                _animationDict.TryAdd(anim.Id, anim);
+            }
+        }
+        
+        public void PlayAnimation(string animationId)
+        {
+            if (animationId == null)
+            {
+                Log.Error($"Animation ID cannot be null.");
+                return;
+            }
+            if (!_animationDict.TryGetValue(animationId, out var animation))
+            {
+                Log.Error($"Animation with ID '{animationId}' not found.");
+                return;
+            }
+            _spriteAnimator.Play(animation);
+        }
+    }
+}

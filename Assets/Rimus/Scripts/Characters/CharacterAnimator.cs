@@ -47,5 +47,21 @@ namespace Rimus.Scripts.Characters
             }
             _spriteAnimator.Play(animation);
         }
+
+        public bool HasAnimation(string animationId)
+        {
+            return animationId != null && _animationDict != null && _animationDict.ContainsKey(animationId);
+        }
+
+        public bool TryPlayAnimation(string animationId)
+        {
+            if (!HasAnimation(animationId))
+            {
+                return false;
+            }
+
+            PlayAnimation(animationId);
+            return true;
+        }
     }
 }

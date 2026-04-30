@@ -1,3 +1,4 @@
+using Rimus.Scripts.Characters;
 using Rimus.Scripts.Characters.TargetSelection;
 using Rimus.Scripts.Tools;
 using UnityEngine;
@@ -8,10 +9,12 @@ namespace Rimus.Scripts.Input
     public class PlayerAttackSelectorInput : MonoBehaviour
     {
         [SerializeField] private AttackSelector _attackSelector;
+        [SerializeField] private SkillCaster _skillCaster;
         [SerializeField] private Camera _camera;
         [SerializeField] private float _planeDepth;
         [SerializeField] private bool _useTransformDepth = true;
         [SerializeField] private bool _clearSelectionWhenClickingEmptySpace = true;
+        [SerializeField] private bool _castOnLeftClick;
         [SerializeField] private bool _debugTargetLogs = true;
         [SerializeField] private float _debugNearbySearchRadius = 1f;
         [SerializeField] private bool _debugVerboseMouseLogs = true;
@@ -24,6 +27,11 @@ namespace Rimus.Scripts.Input
             if (_attackSelector == null)
             {
                 _attackSelector = GetComponent<AttackSelector>();
+            }
+
+            if (_skillCaster == null)
+            {
+                _skillCaster = GetComponent<SkillCaster>();
             }
 
             if (_camera == null)
@@ -50,6 +58,11 @@ namespace Rimus.Scripts.Input
             if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
             {
                 _attackSelector.ConfirmSelection(_clearSelectionWhenClickingEmptySpace);
+
+                if (_castOnLeftClick && _skillCaster != null)
+                {
+                    _skillCaster.TryCastCurrentSkill();
+                }
             }
         }
 

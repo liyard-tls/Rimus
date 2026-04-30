@@ -1,6 +1,6 @@
 using System;
 using System.Collections;
-using Rimus.Characters;
+using Rimus.Scripts.Characters;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -49,6 +49,17 @@ namespace Rimus.Scripts.Tools
         {
             loop = animation.Loop;
             Play(animation.Sprites, animation.Duration);
+        }
+        
+        public void PlayRevert(CharacterAnimation animation)
+        {
+            loop = animation.Loop;
+            var reversedSprites = new Sprite[animation.Sprites.Length];
+            for (var i = 0; i < animation.Sprites.Length; i++)
+            {
+                reversedSprites[i] = animation.Sprites[animation.Sprites.Length - 1 - i];
+            }
+            Play(reversedSprites, animation.Duration);
         }
 
         private void ChangeSprites(Sprite[] animationSprites)

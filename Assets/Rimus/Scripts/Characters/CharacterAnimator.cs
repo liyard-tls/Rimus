@@ -3,19 +3,21 @@ using System.Collections.Generic;
 using Rimus.Scripts.Tools;
 using UnityEngine;
 
-namespace Rimus.Characters
+namespace Rimus.Scripts.Characters
 {
     [Serializable]
     public struct CharacterAnimation
     {
         public string Id;
-        public Sprite[] Sprites;
         public float Duration;
         public bool Loop;
+        public Sprite[] Sprites;
     }
     
     public class CharacterAnimator : MonoBehaviour
     {
+        public CharacterAnimation[] Animations => _animations;
+        
         [SerializeField] private SpriteAnimator _spriteAnimator;
         [SerializeField] private CharacterAnimation[] _animations;
         

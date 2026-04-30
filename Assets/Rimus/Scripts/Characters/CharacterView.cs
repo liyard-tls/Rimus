@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Rimus.Characters
+namespace Rimus.Scripts.Characters
 {
     public class CharacterView : MonoBehaviour
     {

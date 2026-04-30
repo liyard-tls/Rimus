@@ -4,7 +4,7 @@ namespace Rimus.Scripts.Inbox
 {
     [ExecuteAlways]
     [RequireComponent(typeof(LineRenderer))]
-    public class LineRendererRadialSelector : MonoBehaviour
+    public class LineRendererRadialSelector : AttackSelectorView
     {
         [Header("Shape")]
         [SerializeField] private float radius = 4f;
@@ -21,6 +21,18 @@ namespace Rimus.Scripts.Inbox
         [SerializeField] private Vector2 visualScale = Vector2.one;
 
         private LineRenderer _lineRenderer;
+
+        public override AttackSelectorType SelectorType => AttackSelectorType.RadialSector;
+
+        public override Vector3 GetDetectionCenter()
+        {
+            return transform.position;
+        }
+
+        public override float GetDetectionRadius()
+        {
+            return radius * Mathf.Max(visualScale.x, visualScale.y);
+        }
 
         public float Radius
         {
@@ -132,6 +144,43 @@ namespace Rimus.Scripts.Inbox
             _lineRenderer.useWorldSpace = !useLocalSpace;
         }
 
+        public override void UpdateSelector(Vector3 sourcePosition, Vector3 targetPosition)
+        {
+            transform.position = sourcePosition;
+
+            Vector3 direction = targetPosition - sourcePosition;
+            direction.z = 0f;
+
+            if (direction.sqrMagnitude <= Mathf.Epsilon)
+            {
+                return;
+            }
+
+            SetDirection(direction);
+        }
+
+        public override bool ContainsWorldPoint(Vector3 worldPoint)
+        {
+            Vector3 localPoint = transform.InverseTransformPoint(worldPoint);
+            Vector2 planarPoint = new Vector2(ProjectToPlaneAxis(localPoint, PlaneRight), ProjectToPlaneAxis(localPoint, PlaneForward));
+            planarPoint = CompensateForVisualScale(planarPoint);
+
+            float distance = planarPoint.magnitude;
+            if (distance < innerRadius || distance > radius)
+            {
+                return false;
+            }
+
+            if (angle >= 360f)
+            {
+                return true;
+            }
+
+            float pointAngle = Mathf.Atan2(planarPoint.y, planarPoint.x) * Mathf.Rad2Deg;
+            float relativeAngle = Mathf.DeltaAngle(directionDegrees, pointAngle);
+            return Mathf.Abs(relativeAngle) <= angle * 0.5f;
+        }
+
         private void Refresh()
         {
             if (_lineRenderer == null)
@@ -154,22 +203,22 @@ namespace Rimus.Scripts.Inbox
 
             if (radius <= Mathf.Epsilon || angle <= Mathf.Epsilon)
             {
-                return new[] { OffsetPoint(Vector3.zero), OffsetPoint(DirectionPoint(0f, radius)) };
+                return new[] { ApplySpace(OffsetPoint(Vector3.zero)), ApplySpace(OffsetPoint(DirectionPoint(0f, radius))) };
             }
 
             if (clampedInnerRadius <= Mathf.Epsilon)
             {
                 Vector3[] points = new Vector3[sampledArcSegments + 2];
-                points[0] = OffsetPoint(Vector3.zero);
+                points[0] = ApplySpace(OffsetPoint(Vector3.zero));
 
                 for (int i = 0; i < sampledArcSegments; i++)
                 {
                     float t = sampledArcSegments == 1 ? 0f : i / (float)(sampledArcSegments - 1);
                     float currentAngle = Mathf.Lerp(-halfAngle, halfAngle, t);
-                    points[i + 1] = OffsetPoint(DirectionPoint(currentAngle, radius));
+                    points[i + 1] = ApplySpace(OffsetPoint(DirectionPoint(currentAngle, radius)));
                 }
 
-                points[points.Length - 1] = OffsetPoint(Vector3.zero);
+                points[points.Length - 1] = ApplySpace(OffsetPoint(Vector3.zero));
                 return points;
             }
 
@@ -179,14 +228,14 @@ namespace Rimus.Scripts.Inbox
             {
                 float t = sampledArcSegments == 1 ? 0f : i / (float)(sampledArcSegments - 1);
                 float currentAngle = Mathf.Lerp(-halfAngle, halfAngle, t);
-                ringPoints[i] = OffsetPoint(DirectionPoint(currentAngle, clampedInnerRadius));
+                ringPoints[i] = ApplySpace(OffsetPoint(DirectionPoint(currentAngle, clampedInnerRadius)));
             }
 
             for (int i = 0; i < sampledArcSegments; i++)
             {
                 float t = sampledArcSegments == 1 ? 0f : i / (float)(sampledArcSegments - 1);
                 float currentAngle = Mathf.Lerp(halfAngle, -halfAngle, t);
-                ringPoints[sampledArcSegments + i] = OffsetPoint(DirectionPoint(currentAngle, radius));
+                ringPoints[sampledArcSegments + i] = ApplySpace(OffsetPoint(DirectionPoint(currentAngle, radius)));
             }
 
             ringPoints[ringPoints.Length - 1] = ringPoints[0];
@@ -211,6 +260,11 @@ namespace Rimus.Scripts.Inbox
             float compensatedX = visualScale.x > Mathf.Epsilon ? planarDirection.x / visualScale.x : planarDirection.x;
             float compensatedY = visualScale.y > Mathf.Epsilon ? planarDirection.y / visualScale.y : planarDirection.y;
             return new Vector2(compensatedX, compensatedY);
+        }
+
+        private Vector3 ApplySpace(Vector3 point)
+        {
+            return useLocalSpace ? point : transform.TransformPoint(point);
         }
 
         private static float ProjectToPlaneAxis(Vector3 vector, Vector3 axis)

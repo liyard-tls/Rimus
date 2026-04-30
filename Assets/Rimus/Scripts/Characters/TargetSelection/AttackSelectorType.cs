@@ -1,4 +1,4 @@
-namespace Rimus.Scripts.Inbox
+namespace Rimus.Scripts.Characters.TargetSelection
 {
     public enum AttackSelectorType
     {

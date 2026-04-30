@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Rimus.Scripts.Inbox
+namespace Rimus.Scripts.Characters.TargetSelection
 {
     public abstract class AttackSelectorView : MonoBehaviour
     {

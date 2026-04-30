@@ -1,27 +1,18 @@
-using Configs;
 using System.Collections.Generic;
 using System.Text;
-using Rimus.Scripts.Characters;
-using Rimus.Scripts.Inbox;
 using Rimus.Scripts.Tools;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
-namespace Rimus.Scripts.Input
+namespace Rimus.Scripts.Characters.TargetSelection
 {
     public class AttackSelector : MonoBehaviour
     {
         [SerializeField] private AttackSelectorType _currentSelectorType = AttackSelectorType.RadialSector;
         [SerializeField] private AttackSelectorView[] _selectors;
-        [SerializeField] private Camera _camera;
-        [SerializeField] private InputSystem_Actions _inputSystemActions;
-        [SerializeField] private float _planeDepth;
-        [SerializeField] private bool _useTransformDepth = true;
         [SerializeField] private LayerMask _targetLayerMask;
-        [SerializeField] private bool _clearSelectionWhenClickingEmptySpace = true;
+        [SerializeField] private bool _keepOnlyTargetsInsideSelector = true;
         [SerializeField] private bool _debugTargetLogs = true;
         [SerializeField] private float _debugNearbySearchRadius = 1f;
-        [SerializeField] private bool _debugVerboseMouseLogs = true;
 
         private AttackSelectorView _activeSelector;
         private readonly List<Targetable> _hoveredTargets = new List<Targetable>();
@@ -34,17 +25,13 @@ namespace Rimus.Scripts.Input
         public IReadOnlyList<Targetable> SelectedTargets => _selectedTargets;
         public Targetable HoveredTarget => _hoveredTargets.Count > 0 ? _hoveredTargets[0] : null;
         public Targetable SelectedTarget => _selectedTargets.Count > 0 ? _selectedTargets[0] : null;
+        public AttackSelectorView ActiveSelector => _activeSelector;
 
         private void Awake()
         {
             if (_selectors == null || _selectors.Length == 0)
             {
                 _selectors = GetComponentsInChildren<AttackSelectorView>(true);
-            }
-
-            if (_camera == null)
-            {
-                _camera = Camera.main;
             }
 
             SetSelectorType(_currentSelectorType);
@@ -81,67 +68,49 @@ namespace Rimus.Scripts.Input
             }
         }
 
-        private void Update()
+        public void UpdateTargeting(Vector3 targetPosition)
         {
-            if (_activeSelector == null || _camera == null)
+            if (_activeSelector == null)
             {
                 return;
             }
 
-            Vector3 mouseWorldPosition;
-            if (!TryGetMouseWorldPosition(out mouseWorldPosition))
+            _activeSelector.UpdateSelector(transform.position, targetPosition);
+            List<Targetable> currentTargets = GetTargetsInSelector();
+            SetHoveredTargets(currentTargets);
+
+            if (_keepOnlyTargetsInsideSelector)
             {
-                return;
+                SyncSelectedTargetsWithHovered();
             }
+        }
 
-            _activeSelector.UpdateSelector(transform.position, mouseWorldPosition);
-            SetHoveredTargets(GetTargetsInSelector());
-
-            if (Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
+        public void ConfirmSelection(bool clearSelectionWhenNoTargets = true)
+        {
+            if (_hoveredTargets.Count > 0)
             {
-                if (_hoveredTargets.Count > 0)
-                {
-                    SetSelectedTargets(_hoveredTargets);
-                }
-                else if (_clearSelectionWhenClickingEmptySpace)
-                {
-                    SetSelectedTargets(null);
-                }
+                SetSelectedTargets(_hoveredTargets);
             }
+            else if (clearSelectionWhenNoTargets)
+            {
+                SetSelectedTargets(null);
+            }
+        }
 
+        public void ClearSelection()
+        {
+            SetSelectedTargets(null);
+        }
+
+        public void ClearHover()
+        {
+            SetHoveredTargets(null);
         }
 
         private void OnDisable()
         {
-            SetHoveredTargets(null);
-            SetSelectedTargets(null);
-        }
-
-        private bool TryGetMouseWorldPosition(out Vector3 worldPosition)
-        {
-            if (Mouse.current == null)
-            {
-                LogDetectionOnce("mouse-null", "Mouse.current is null. Target detection skipped.");
-                worldPosition = default;
-                return false;
-            }
-
-            float planeDepth = _useTransformDepth ? transform.position.z : _planeDepth;
-            Vector2 mouseScreenPosition = Mouse.current.position.ReadValue();
-            Ray ray = _camera.ScreenPointToRay(mouseScreenPosition);
-            Plane groundPlane = new Plane(Vector3.forward, new Vector3(0f, 0f, planeDepth));
-
-            float enter;
-            if (groundPlane.Raycast(ray, out enter))
-            {
-                worldPosition = ray.GetPoint(enter);
-                LogMouseWorldPosition(mouseScreenPosition, planeDepth, ray, enter, worldPosition);
-                return true;
-            }
-
-            worldPosition = default;
-            LogDetectionOnce("mouse-plane-miss", $"Mouse ray did not hit target plane at depth {planeDepth}.");
-            return false;
+            ClearHover();
+            ClearSelection();
         }
 
         private List<Targetable> GetTargetsInSelector()
@@ -299,6 +268,30 @@ namespace Rimus.Scripts.Input
             Log.Info(message);
         }
 
+        private void SyncSelectedTargetsWithHovered()
+        {
+            if (_selectedTargets.Count == 0)
+            {
+                return;
+            }
+
+            List<Targetable> remainingSelectedTargets = null;
+
+            for (int i = 0; i < _selectedTargets.Count; i++)
+            {
+                Targetable selectedTarget = _selectedTargets[i];
+                if (selectedTarget == null || !_hoveredTargetSet.Contains(selectedTarget))
+                {
+                    continue;
+                }
+
+                remainingSelectedTargets ??= new List<Targetable>();
+                remainingSelectedTargets.Add(selectedTarget);
+            }
+
+            SetSelectedTargets(remainingSelectedTargets);
+        }
+
         private string BuildNoTargetLog(Vector3 detectionCenter, float detectionRadius)
         {
             StringBuilder builder = new StringBuilder();
@@ -311,7 +304,7 @@ namespace Rimus.Scripts.Input
                 return builder.ToString();
             }
 
-            builder.Append($" Nearby colliders: ");
+            builder.Append(" Nearby colliders: ");
             for (int i = 0; i < nearbyColliders.Length; i++)
             {
                 Collider2D collider = nearbyColliders[i];
@@ -333,44 +326,6 @@ namespace Rimus.Scripts.Input
             }
 
             return builder.ToString();
-        }
-
-        private void LogMouseWorldPosition(Vector2 mouseScreenPosition, float planeDepth, Ray ray, float enter, Vector3 worldPosition)
-        {
-            if (!_debugTargetLogs || !_debugVerboseMouseLogs)
-            {
-                return;
-            }
-
-            StringBuilder builder = new StringBuilder();
-            builder.Append($"Mouse screen={mouseScreenPosition}, planeDepth={planeDepth}, ");
-            builder.Append($"cameraPos={_camera.transform.position}, cameraRot={_camera.transform.rotation.eulerAngles}, ");
-            builder.Append($"rayOrigin={ray.origin}, rayDir={ray.direction}, enter={enter:0.###}, world={worldPosition}. ");
-
-            Collider2D overlapPointHit = Physics2D.OverlapPoint(worldPosition);
-            Collider2D[] overlapHits = Physics2D.OverlapCircleAll(worldPosition, _debugNearbySearchRadius);
-            RaycastHit2D raycastHit = Physics2D.GetRayIntersection(ray, 1000f);
-
-            builder.Append($"OverlapPoint={(overlapPointHit != null ? overlapPointHit.name : "null")}, ");
-            builder.Append($"OverlapCircleAll={overlapHits.Length}, ");
-            builder.Append($"GetRayIntersection={(raycastHit.collider != null ? raycastHit.collider.name : "null")}.");
-
-            if (overlapHits.Length > 0)
-            {
-                builder.Append(" Nearby=");
-                for (int i = 0; i < overlapHits.Length; i++)
-                {
-                    Collider2D collider = overlapHits[i];
-                    if (i > 0)
-                    {
-                        builder.Append(" | ");
-                    }
-
-                    builder.Append($"{collider.name}@{collider.transform.position}/layer={LayerMask.LayerToName(collider.gameObject.layer)}({collider.gameObject.layer})");
-                }
-            }
-
-            Log.Info(builder.ToString());
         }
 
         private static bool AreSameTargets(IReadOnlyList<Targetable> currentTargets, IReadOnlyList<Targetable> newTargets)

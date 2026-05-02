@@ -14,7 +14,7 @@ namespace Rimus.Scripts.Tools
         ServerResponse,
         Temporary,
         ClientInput,
-        GameLoop,
+        BattleLog,
         Application,
         WSClient,
         Analytics,
@@ -33,7 +33,7 @@ namespace Rimus.Scripts.Tools
             {LogType.ServerResponse, "#FFD700"}, 
             {LogType.Temporary, "#FC03F8"},
             {LogType.ClientInput, "#1E90FF"},
-            {LogType.GameLoop, "#00CED1"},
+            {LogType.BattleLog, "#00CED1"},
             {LogType.Application, "#4287f5"},
             {LogType.WSClient, "#FF69B4"},
             {LogType.Analytics, "#FF4500"},
@@ -52,7 +52,7 @@ namespace Rimus.Scripts.Tools
             {LogType.Error, true},
             {LogType.Temporary, true},
             {LogType.ClientInput, true},
-            {LogType.GameLoop, true},
+            {LogType.BattleLog, true},
             {LogType.Application, true},
             {LogType.WSClient, true},
             {LogType.Analytics, true},
@@ -69,7 +69,7 @@ namespace Rimus.Scripts.Tools
             {LogType.Error, true},
             {LogType.Temporary, false},
             {LogType.ClientInput, false},
-            {LogType.GameLoop, false},
+            {LogType.BattleLog, false},
             {LogType.Application, true},
             {LogType.WSClient, true},
             {LogType.Analytics, true},
@@ -86,7 +86,7 @@ namespace Rimus.Scripts.Tools
             {LogType.Error, true},
             {LogType.Temporary, true},
             {LogType.ClientInput, true},
-            {LogType.GameLoop, true},
+            {LogType.BattleLog, true},
             {LogType.Application, true},
             {LogType.WSClient, true},
             {LogType.Analytics, true},
@@ -240,9 +240,9 @@ namespace Rimus.Scripts.Tools
             LogMessage(LogType.ClientInput, message);
         }
         
-        public static void GameLoop(string message)
+        public static void BattleLog(string message)
         {
-            LogMessage(LogType.GameLoop, message);
+            LogMessage(LogType.BattleLog, message);
         }
         
         public static void ServerResponse(string message)

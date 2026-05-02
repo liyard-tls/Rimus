@@ -21,6 +21,7 @@ namespace Rimus.Scripts.Input
         [SerializeField] private bool _clearHoverOnDisable = true;
 
         private string _lastDetectionLogKey;
+        private bool _isActive = false;
 
         private void Awake()
         {
@@ -40,9 +41,18 @@ namespace Rimus.Scripts.Input
             }
         }
 
+        public void SetActive(bool active)
+        {
+            _isActive = active;
+            if (!active && _attackSelector != null && _clearHoverOnDisable)
+            {
+                _attackSelector.ClearHover();
+            }
+        }
+
         private void Update()
         {
-            if (_attackSelector == null || _camera == null)
+            if (!_isActive && _attackSelector == null || _camera == null)
             {
                 return;
             }

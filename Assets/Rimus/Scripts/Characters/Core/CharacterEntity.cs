@@ -11,6 +11,10 @@ namespace Rimus.Scripts.Characters
         [SerializeField] private Targetable _targetable;
         [SerializeField] private AttackSelector _attackSelector;
         [SerializeField] private SkillCaster _skillCaster;
+        [SerializeField] private CharacterView _view;
+        
+        
+        [SerializeField] private bool IsControlledByPlayer;
 
         public CharacterDefinition Definition => _definition;
         public StatsComponent Stats => _stats;
@@ -18,6 +22,7 @@ namespace Rimus.Scripts.Characters
         public Targetable Targetable => _targetable;
         public AttackSelector AttackSelector => _attackSelector;
         public SkillCaster SkillCaster => _skillCaster;
+        public CharacterView View => _view;
 
         private void Awake()
         {
@@ -46,6 +51,11 @@ namespace Rimus.Scripts.Characters
             {
                 _skillCaster.LoadDefaultSkillsFromDefinition();
             }
+        }
+
+        public void StartTurn()
+        {
+            
         }
     }
 }

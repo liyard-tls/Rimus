@@ -20,6 +20,7 @@ namespace Rimus.Scripts.Characters
         public int CurrentHp => _currentHp;
         public int MaxHp => _stats != null ? _stats.CurrentStats.MaxHp : 0;
         public bool IsDead => _isDead;
+        public bool IsAlive => !_isDead;
         public float NormalizedHp => MaxHp <= 0 ? 0f : _currentHp / (float)MaxHp;
 
         private void Awake()

@@ -816,7 +816,6 @@ GameObject:
   - component: {fileID: 407255409}
   - component: {fileID: 407255408}
   - component: {fileID: 407255407}
-  - component: {fileID: 407255406}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -824,23 +823,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &407255406
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407255405}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f7a68eb0d76228182cc9d8aebe414f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Rimus.Scripts.Characters.CharacterEntityDebugUI
-  _showUi: 1
-  _windowSize: {x: 320, y: 420}
-  _windowStart: {x: 20, y: 20}
-  _windowOffset: {x: 340, y: 0}
-  _refreshInterval: 0.5
 --- !u!114 &407255407
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1071,6 +1053,8 @@ MonoBehaviour:
   _targetable: {fileID: 407255412}
   _attackSelector: {fileID: 1828201695}
   _skillCaster: {fileID: 407255411}
+  _view: {fileID: 0}
+  IsControlledByPlayer: 0
 --- !u!61 &407255416
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2598,6 +2582,50 @@ MonoBehaviour:
   planeForward: {x: 0, y: 100, z: 1}
   heightOffset: 0
   visualScale: {x: 1, y: 0.5}
+--- !u!1 &1179093467
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1179093469}
+  - component: {fileID: 1179093468}
+  m_Layer: 0
+  m_Name: PlayerControlPanelGUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1179093468
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179093467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1ecf0063fca4a139b3e492e8bc0c2eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Rimus.Scripts.Characters.PlayerControlPanel
+--- !u!4 &1179093469
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1179093467}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.84839, y: 12.22793, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1198183861
 GameObject:
   m_ObjectHideFlags: 0
@@ -3964,7 +3992,6 @@ GameObject:
   - component: {fileID: 1971331905}
   - component: {fileID: 1971331913}
   - component: {fileID: 1971331914}
-  - component: {fileID: 1971331915}
   m_Layer: 6
   m_Name: MushroomEnemy
   m_TagString: Untagged
@@ -4233,6 +4260,8 @@ MonoBehaviour:
   _targetable: {fileID: 1971331907}
   _attackSelector: {fileID: 199772199}
   _skillCaster: {fileID: 1971331909}
+  _view: {fileID: 0}
+  IsControlledByPlayer: 0
 --- !u!114 &1971331913
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4261,23 +4290,6 @@ MonoBehaviour:
   _view: {fileID: 1971331913}
   _health: {fileID: 1971331910}
   _targetable: {fileID: 1971331907}
---- !u!114 &1971331915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1971331903}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 75f7a68eb0d76228182cc9d8aebe414f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Rimus.Scripts.Characters.CharacterEntityDebugUI
-  _showUi: 1
-  _windowSize: {x: 320, y: 420}
-  _windowStart: {x: 20, y: 20}
-  _windowOffset: {x: 340, y: 0}
-  _refreshInterval: 0.5
 --- !u!1 &2063296973
 GameObject:
   m_ObjectHideFlags: 0
@@ -4572,3 +4584,4 @@ SceneRoots:
   - {fileID: 1971331906}
   - {fileID: 407255417}
   - {fileID: 1055602796}
+  - {fileID: 1179093469}

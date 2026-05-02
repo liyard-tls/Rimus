@@ -1,7 +1,7 @@
 using Rimus.Scripts.Characters.TargetSelection;
 using UnityEngine;
 
-namespace Rimus.Scripts.Characters
+namespace Rimus.Scripts.Characters.View
 {
     public class CharacterPresenter : MonoBehaviour
     {

@@ -16,6 +16,11 @@ namespace Rimus.Scripts.Characters
         [SerializeField] private bool _addMagicAttackStatToPower;
         [SerializeField, Min(1)] private int _maxTargets = 1;
         [SerializeField] private bool _clearSelectionAfterCast = true;
+        
+        [Header("Animation")]
+        [SerializeField] private string _animationName;
+        [SerializeField] private float _animationActionTime = 0.5f;
+        [SerializeField] private float _animationDuration = 1f;
 
         public string Id
         {
@@ -31,5 +36,9 @@ namespace Rimus.Scripts.Characters
         public bool AddMagicAttackStatToPower => _addMagicAttackStatToPower;
         public int MaxTargets => _maxTargets;
         public bool ClearSelectionAfterCast => _clearSelectionAfterCast;
+        
+        public string AnimationName => _animationName;
+        public float AnimationActionTime => _animationActionTime;
+        public float AnimationDuration => _animationDuration;
     }
 }

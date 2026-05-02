@@ -31,6 +31,19 @@ namespace Rimus.Scripts.Characters
             _isDead = isDead;
             RefreshState();
         }
+        
+        public void PlayAnimation(string animationName)
+        {
+            if (_isDead || _animator == null)
+            {
+                return;
+            }
+
+            if (!_animator.TryPlayAnimation(animationName))
+            {
+                RefreshState();
+            }
+        }
 
         public void PlayDamaged()
         {

@@ -1,4 +1,6 @@
+using Configs;
 using Rimus.Scripts.Battle;
+using Rimus.Scripts.Characters.Input;
 
 namespace Rimus.Scripts
 {

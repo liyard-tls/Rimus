@@ -1079,6 +1079,154 @@ namespace Configs
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Battle"",
+            ""id"": ""f46b983d-4c45-4d9a-8d7c-bca5b6e2d3a0"",
+            ""actions"": [
+                {
+                    ""name"": ""UseSkill1"",
+                    ""type"": ""Button"",
+                    ""id"": ""eb380fc1-b8dd-47d7-8b95-fbee158ed5af"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseSkill2"",
+                    ""type"": ""Button"",
+                    ""id"": ""64603d55-3817-46b6-a2aa-6c5c638aa207"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseSkill3"",
+                    ""type"": ""Button"",
+                    ""id"": ""6850aeef-1cff-4fc6-a6aa-93e5a78c866a"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseSkill4"",
+                    ""type"": ""Button"",
+                    ""id"": ""3654deb1-d7ea-4900-abfc-e21685d577da"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SimpleAttack"",
+                    ""type"": ""Button"",
+                    ""id"": ""5e1af769-e7ec-43fb-b87c-43d55d894124"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Discard"",
+                    ""type"": ""Button"",
+                    ""id"": ""71e7b5a4-300e-44c3-958e-83ed2148868c"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""UseItem"",
+                    ""type"": ""Button"",
+                    ""id"": ""de0b9592-25ad-48ff-82b1-aab8cf64491e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""6720a12a-0411-44df-8eb3-9035338ec15f"",
+                    ""path"": ""<Keyboard>/1"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""UseSkill1"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""691f05d3-b537-4cb7-bc88-74c2cb02dc20"",
+                    ""path"": ""<Keyboard>/2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""UseSkill2"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""01bf90ab-09ad-429c-9881-c4929782322f"",
+                    ""path"": ""<Keyboard>/3"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""UseSkill3"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d79a1e06-98fa-4911-8c51-9c598829f573"",
+                    ""path"": ""<Keyboard>/4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""UseSkill4"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""143fc829-9b19-4101-a6a0-ff4e494137b2"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""SimpleAttack"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""441ac63e-69ca-49d8-8a22-90b35d52f001"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""Discard"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5b2a0979-03f9-4795-880a-55fb32c0cbee"",
+                    ""path"": ""<Keyboard>/i"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": "";Keyboard&Mouse"",
+                    ""action"": ""UseItem"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1167,12 +1315,22 @@ namespace Configs
             m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
             m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
             m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+            // Battle
+            m_Battle = asset.FindActionMap("Battle", throwIfNotFound: true);
+            m_Battle_UseSkill1 = m_Battle.FindAction("UseSkill1", throwIfNotFound: true);
+            m_Battle_UseSkill2 = m_Battle.FindAction("UseSkill2", throwIfNotFound: true);
+            m_Battle_UseSkill3 = m_Battle.FindAction("UseSkill3", throwIfNotFound: true);
+            m_Battle_UseSkill4 = m_Battle.FindAction("UseSkill4", throwIfNotFound: true);
+            m_Battle_SimpleAttack = m_Battle.FindAction("SimpleAttack", throwIfNotFound: true);
+            m_Battle_Discard = m_Battle.FindAction("Discard", throwIfNotFound: true);
+            m_Battle_UseItem = m_Battle.FindAction("UseItem", throwIfNotFound: true);
         }
 
         ~@InputSystem_Actions()
         {
             UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Player.Disable() has not been called.");
             UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, InputSystem_Actions.UI.Disable() has not been called.");
+            UnityEngine.Debug.Assert(!m_Battle.enabled, "This will cause a leak and performance issues, InputSystem_Actions.Battle.Disable() has not been called.");
         }
 
         /// <summary>
@@ -1623,6 +1781,168 @@ namespace Configs
         /// Provides a new <see cref="UIActions" /> instance referencing this action map.
         /// </summary>
         public UIActions @UI => new UIActions(this);
+
+        // Battle
+        private readonly InputActionMap m_Battle;
+        private List<IBattleActions> m_BattleActionsCallbackInterfaces = new List<IBattleActions>();
+        private readonly InputAction m_Battle_UseSkill1;
+        private readonly InputAction m_Battle_UseSkill2;
+        private readonly InputAction m_Battle_UseSkill3;
+        private readonly InputAction m_Battle_UseSkill4;
+        private readonly InputAction m_Battle_SimpleAttack;
+        private readonly InputAction m_Battle_Discard;
+        private readonly InputAction m_Battle_UseItem;
+        /// <summary>
+        /// Provides access to input actions defined in input action map "Battle".
+        /// </summary>
+        public struct BattleActions
+        {
+            private @InputSystem_Actions m_Wrapper;
+
+            /// <summary>
+            /// Construct a new instance of the input action map wrapper class.
+            /// </summary>
+            public BattleActions(@InputSystem_Actions wrapper) { m_Wrapper = wrapper; }
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/UseSkill1".
+            /// </summary>
+            public InputAction @UseSkill1 => m_Wrapper.m_Battle_UseSkill1;
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/UseSkill2".
+            /// </summary>
+            public InputAction @UseSkill2 => m_Wrapper.m_Battle_UseSkill2;
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/UseSkill3".
+            /// </summary>
+            public InputAction @UseSkill3 => m_Wrapper.m_Battle_UseSkill3;
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/UseSkill4".
+            /// </summary>
+            public InputAction @UseSkill4 => m_Wrapper.m_Battle_UseSkill4;
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/SimpleAttack".
+            /// </summary>
+            public InputAction @SimpleAttack => m_Wrapper.m_Battle_SimpleAttack;
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/Discard".
+            /// </summary>
+            public InputAction @Discard => m_Wrapper.m_Battle_Discard;
+            /// <summary>
+            /// Provides access to the underlying input action "Battle/UseItem".
+            /// </summary>
+            public InputAction @UseItem => m_Wrapper.m_Battle_UseItem;
+            /// <summary>
+            /// Provides access to the underlying input action map instance.
+            /// </summary>
+            public InputActionMap Get() { return m_Wrapper.m_Battle; }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+            public void Enable() { Get().Enable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+            public void Disable() { Get().Disable(); }
+            /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+            public bool enabled => Get().enabled;
+            /// <summary>
+            /// Implicitly converts an <see ref="BattleActions" /> to an <see ref="InputActionMap" /> instance.
+            /// </summary>
+            public static implicit operator InputActionMap(BattleActions set) { return set.Get(); }
+            /// <summary>
+            /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <param name="instance">Callback instance.</param>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+            /// </remarks>
+            /// <seealso cref="BattleActions" />
+            public void AddCallbacks(IBattleActions instance)
+            {
+                if (instance == null || m_Wrapper.m_BattleActionsCallbackInterfaces.Contains(instance)) return;
+                m_Wrapper.m_BattleActionsCallbackInterfaces.Add(instance);
+                @UseSkill1.started += instance.OnUseSkill1;
+                @UseSkill1.performed += instance.OnUseSkill1;
+                @UseSkill1.canceled += instance.OnUseSkill1;
+                @UseSkill2.started += instance.OnUseSkill2;
+                @UseSkill2.performed += instance.OnUseSkill2;
+                @UseSkill2.canceled += instance.OnUseSkill2;
+                @UseSkill3.started += instance.OnUseSkill3;
+                @UseSkill3.performed += instance.OnUseSkill3;
+                @UseSkill3.canceled += instance.OnUseSkill3;
+                @UseSkill4.started += instance.OnUseSkill4;
+                @UseSkill4.performed += instance.OnUseSkill4;
+                @UseSkill4.canceled += instance.OnUseSkill4;
+                @SimpleAttack.started += instance.OnSimpleAttack;
+                @SimpleAttack.performed += instance.OnSimpleAttack;
+                @SimpleAttack.canceled += instance.OnSimpleAttack;
+                @Discard.started += instance.OnDiscard;
+                @Discard.performed += instance.OnDiscard;
+                @Discard.canceled += instance.OnDiscard;
+                @UseItem.started += instance.OnUseItem;
+                @UseItem.performed += instance.OnUseItem;
+                @UseItem.canceled += instance.OnUseItem;
+            }
+
+            /// <summary>
+            /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+            /// </summary>
+            /// <remarks>
+            /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+            /// </remarks>
+            /// <seealso cref="BattleActions" />
+            private void UnregisterCallbacks(IBattleActions instance)
+            {
+                @UseSkill1.started -= instance.OnUseSkill1;
+                @UseSkill1.performed -= instance.OnUseSkill1;
+                @UseSkill1.canceled -= instance.OnUseSkill1;
+                @UseSkill2.started -= instance.OnUseSkill2;
+                @UseSkill2.performed -= instance.OnUseSkill2;
+                @UseSkill2.canceled -= instance.OnUseSkill2;
+                @UseSkill3.started -= instance.OnUseSkill3;
+                @UseSkill3.performed -= instance.OnUseSkill3;
+                @UseSkill3.canceled -= instance.OnUseSkill3;
+                @UseSkill4.started -= instance.OnUseSkill4;
+                @UseSkill4.performed -= instance.OnUseSkill4;
+                @UseSkill4.canceled -= instance.OnUseSkill4;
+                @SimpleAttack.started -= instance.OnSimpleAttack;
+                @SimpleAttack.performed -= instance.OnSimpleAttack;
+                @SimpleAttack.canceled -= instance.OnSimpleAttack;
+                @Discard.started -= instance.OnDiscard;
+                @Discard.performed -= instance.OnDiscard;
+                @Discard.canceled -= instance.OnDiscard;
+                @UseItem.started -= instance.OnUseItem;
+                @UseItem.performed -= instance.OnUseItem;
+                @UseItem.canceled -= instance.OnUseItem;
+            }
+
+            /// <summary>
+            /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="BattleActions.UnregisterCallbacks(IBattleActions)" />.
+            /// </summary>
+            /// <seealso cref="BattleActions.UnregisterCallbacks(IBattleActions)" />
+            public void RemoveCallbacks(IBattleActions instance)
+            {
+                if (m_Wrapper.m_BattleActionsCallbackInterfaces.Remove(instance))
+                    UnregisterCallbacks(instance);
+            }
+
+            /// <summary>
+            /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+            /// </summary>
+            /// <remarks>
+            /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+            /// </remarks>
+            /// <seealso cref="BattleActions.AddCallbacks(IBattleActions)" />
+            /// <seealso cref="BattleActions.RemoveCallbacks(IBattleActions)" />
+            /// <seealso cref="BattleActions.UnregisterCallbacks(IBattleActions)" />
+            public void SetCallbacks(IBattleActions instance)
+            {
+                foreach (var item in m_Wrapper.m_BattleActionsCallbackInterfaces)
+                    UnregisterCallbacks(item);
+                m_Wrapper.m_BattleActionsCallbackInterfaces.Clear();
+                AddCallbacks(instance);
+            }
+        }
+        /// <summary>
+        /// Provides a new <see cref="BattleActions" /> instance referencing this action map.
+        /// </summary>
+        public BattleActions @Battle => new BattleActions(this);
         private int m_KeyboardMouseSchemeIndex = -1;
         /// <summary>
         /// Provides access to the input control scheme.
@@ -1836,6 +2156,63 @@ namespace Configs
             /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
             /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
             void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+        }
+        /// <summary>
+        /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Battle" which allows adding and removing callbacks.
+        /// </summary>
+        /// <seealso cref="BattleActions.AddCallbacks(IBattleActions)" />
+        /// <seealso cref="BattleActions.RemoveCallbacks(IBattleActions)" />
+        public interface IBattleActions
+        {
+            /// <summary>
+            /// Method invoked when associated input action "UseSkill1" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnUseSkill1(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "UseSkill2" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnUseSkill2(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "UseSkill3" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnUseSkill3(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "UseSkill4" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnUseSkill4(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "SimpleAttack" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnSimpleAttack(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "Discard" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnDiscard(InputAction.CallbackContext context);
+            /// <summary>
+            /// Method invoked when associated input action "UseItem" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+            /// </summary>
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+            /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+            void OnUseItem(InputAction.CallbackContext context);
         }
     }
 }

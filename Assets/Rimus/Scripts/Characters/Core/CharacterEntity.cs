@@ -12,6 +12,7 @@ namespace Rimus.Scripts.Characters
         [SerializeField] private AttackSelector _attackSelector;
         [SerializeField] private SkillCaster _skillCaster;
         [SerializeField] private CharacterView _view;
+        private CharacterTurnHandler _turnHandler;
         
         
         [SerializeField] private bool IsControlledByPlayer;
@@ -23,6 +24,7 @@ namespace Rimus.Scripts.Characters
         public AttackSelector AttackSelector => _attackSelector;
         public SkillCaster SkillCaster => _skillCaster;
         public CharacterView View => _view;
+        public CharacterTurnHandler TurnHandler => _turnHandler;
 
         private void Awake()
         {
@@ -31,6 +33,7 @@ namespace Rimus.Scripts.Characters
             _targetable ??= GetComponent<Targetable>();
             _attackSelector ??= GetComponent<AttackSelector>();
             _skillCaster ??= GetComponent<SkillCaster>();
+            _turnHandler = new CharacterTurnHandler(IsControlledByPlayer);
 
             if (_stats != null && _definition != null)
             {

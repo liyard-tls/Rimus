@@ -11,9 +11,8 @@ namespace Rimus.Scripts.Battle
         [SerializeField] private CharacterEntity _currentCharacter;
 
         private BattleTurnManager _battleTurnManager = new BattleTurnManager();
-        private 
         
-        void StartBattle()
+        public void StartBattle()
         {
             _battleTurnManager
                 .AddCharacter(_playerCharacter)
@@ -21,18 +20,19 @@ namespace Rimus.Scripts.Battle
             NextTurn();
         }
 
-        void NextTurn()
+        public void NextTurn()
         {
             _currentCharacter = _battleTurnManager.GetTurnCharacter();
+            _currentCharacter.StartTurn();
         }
         
-        void FinishTurn()
+        public void FinishTurn()
         {
             _battleTurnManager.CharacterFinishTurn(_currentCharacter);
             NextTurn();
         }
 
-        void EndBattle()
+        public void EndBattle()
         {
         }
     }

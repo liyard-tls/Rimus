@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a16023f6a2d4fec93fd799821cb1dbe, type: 3}
+  m_Name: MapNodeAssets
+  m_EditorClassIdentifier: Assembly-CSharp::Rimus.Scripts.Map.MapNodeAssets
+  FilledBackground: {fileID: -2115851885, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  DraftedBackground: {fileID: -494534694, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  Lid: {fileID: -2115851885, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  MonsterIcon: {fileID: 955836294, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  HumanIcon: {fileID: 133089587, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  BossIcon: {fileID: 1056329461, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  HealIcon: {fileID: 2093817654, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  TreasureIcon: {fileID: -2132202185, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  ExclamationIcon: {fileID: 1819454333, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  QuestionIcon: {fileID: 1614903962, guid: a29549b8a4a9068ae81926a2bd142732, type: 3}
+  DefaultColor: {r: 1, g: 1, b: 1, a: 1}
+  CurrentColor: {r: 0.8066038, g: 0.5528661, b: 0.34242612, a: 1}
+  PassedColor: {r: 0.129361, g: 0.8066038, b: 0.28785825, a: 1}
+  FailedColor: {r: 0.6226415, g: 0.1233535, b: 0.15069832, a: 1}
+  MonsterColor: {r: 0.85882354, g: 0.28235295, b: 0.28235295, a: 1}
+  HumanColor: {r: 0.28235295, g: 0.62352943, b: 0.85882354, a: 1}
+  BossColor: {r: 0.85882354, g: 0.28235295, b: 0.28235295, a: 1}
+  HealColor: {r: 0.28235295, g: 0.85882354, b: 0.4, a: 1}
+  TreasureColor: {r: 0.6862745, g: 0.28235295, b: 0.85882354, a: 1}
+  ExclamationColor: {r: 1, g: 1, b: 1, a: 0.16470589}
+  QuestionColor: {r: 1, g: 1, b: 1, a: 0.16470589}

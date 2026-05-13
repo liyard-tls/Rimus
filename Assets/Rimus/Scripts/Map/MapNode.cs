@@ -1,4 +1,5 @@
 using System;
+using Sirenix.OdinInspector;
 
 namespace Rimus.Scripts.Map
 {
@@ -10,5 +11,11 @@ namespace Rimus.Scripts.Map
         public MapNodeLidType LidType;
         public MapNodeStatus Status;
         public int[] NextNodeIds;
+
+        [Button]
+        public void GenerateId()
+        {
+            Id = Guid.NewGuid().GetHashCode();
+        }
     }
 }

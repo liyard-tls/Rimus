@@ -1,12 +1,41 @@
 using System;
+using System.Collections.Generic;
+using Rimus.Scripts.Tools.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Rimus.Scripts.Map
 {
+    [Serializable]
+    public struct ConnectionData
+    {
+        public MapNodeView From;
+        public MapNodeView To;
+        public UIConnectionGraphic Graphic;
+        
+        public ConnectionData(MapNodeView from, MapNodeView to, UIConnectionGraphic graphic)
+        {
+            From = from;
+            To = to;
+            Graphic = graphic;
+        }
+    }
+
+    [Serializable]
+    public struct ConnectionAnchors
+    {
+        public RectTransform Top;
+        public RectTransform Bottom;
+        public RectTransform Left;
+        public RectTransform Right;
+    }
     
     public class MapNodeView : MonoBehaviour
     {
+        public MapNode Node => _node;
+        public ConnectionAnchors ConnectionAnchors => _connectionAnchors;
+        public List<ConnectionData> Connections => _connections;
+        
         [SerializeField] private MapNode _node;
         
         [SerializeField] private MapNodeAssets _assets;
@@ -14,6 +43,8 @@ namespace Rimus.Scripts.Map
         [SerializeField] private Image _iconImage;
         [SerializeField] private Image _lidImage;
         [SerializeField] private Image _lidIconImage;
+        [SerializeField] private ConnectionAnchors _connectionAnchors;
+        [SerializeField] private List<ConnectionData> _connections = new List<ConnectionData>();
 
         public void Initialize(MapNode node)
         {
@@ -92,6 +123,11 @@ namespace Rimus.Scripts.Map
                     _lidIconImage.color = Color.clear;
                     break;
             }
+        }
+
+        public void SetConnectionAnchors(ConnectionAnchors anchors)
+        {
+            _connectionAnchors = anchors;
         }
     }
 }

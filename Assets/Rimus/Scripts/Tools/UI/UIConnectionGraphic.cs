@@ -268,5 +268,12 @@ namespace Rimus.Scripts.Tools.UI
             gapLength = Mathf.Max(0f, newGapLength);
             SetVerticesDirty();
         }
+
+        public static UIConnectionGraphic Create(Transform parent)
+        {
+            GameObject go = new GameObject("UI Connection", typeof(RectTransform), typeof(UIConnectionGraphic));
+            go.transform.SetParent(parent, false);
+            return go.GetComponent<UIConnectionGraphic>();
+        }
     }
 }

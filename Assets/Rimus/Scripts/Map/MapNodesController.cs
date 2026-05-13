@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 namespace Rimus.Scripts.Map
@@ -9,9 +10,13 @@ namespace Rimus.Scripts.Map
 
         
         
-        public void BuildConnections()
+        [Button]
+        public void UpdateNodeViews()
         {
-            
+            foreach (var node in _nodesViews)
+            {
+                node.UpdateView();
+            }
         }
     }
 }

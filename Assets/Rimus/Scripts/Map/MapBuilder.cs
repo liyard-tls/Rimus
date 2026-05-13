@@ -19,7 +19,7 @@ namespace Rimus.Scripts.Map
         private Dictionary<int, MapNodeView> _nodeViews = new Dictionary<int, MapNodeView>();
         
         [Button]
-        public void UpdateNodes()
+        public void UpdateState()
         {
             _nodeViews = new Dictionary<int, MapNodeView>();
             
@@ -42,26 +42,6 @@ namespace Rimus.Scripts.Map
                 RebuildConnectionsForNode(node);
             }
             Log.Info("=== Finished rebuilding map connections ===");
-        }
-
-        [Button]
-        public void SetAnchorsToView()
-        {
-            // temporary method to set anchors to view for all nodes, should be removed after anchors will be set in prefab
-            foreach (var node in _nodeViews.Values)
-            {
-                Undo.RecordObject(node, "Set Connection Anchors");
-
-                var anchors = node.ConnectionAnchors;
-                anchors.Top = node.transform.Find("TopAnchor").GetComponent<RectTransform>();
-                anchors.Bottom = node.transform.Find("BottomAnchor").GetComponent<RectTransform>();
-                anchors.Left = node.transform.Find("LeftAnchor").GetComponent<RectTransform>();
-                anchors.Right = node.transform.Find("RightAnchor").GetComponent<RectTransform>();
-                node.SetConnectionAnchors(anchors);
-
-                EditorUtility.SetDirty(node);
-                EditorSceneManager.MarkSceneDirty(node.gameObject.scene);
-            }
         }
 
         public void RebuildConnectionsForNode(MapNodeView nodeView)
@@ -94,10 +74,10 @@ namespace Rimus.Scripts.Map
             Undo.RecordObject(nodeView, "Create Map Connection");
 
             var connectionGraphic = UIConnectionGraphic.Create(nodeView.transform);
+            connectionGraphic.transform.SetAsFirstSibling();
             Undo.RegisterCreatedObjectUndo(connectionGraphic.gameObject, "Create Map Connection");
-
-            var connectionAnchors = GetConnectionAnchors(nodeView, nextNodeView);
-            connectionGraphic.SetNodes(connectionAnchors.from, connectionAnchors.to);
+            
+            connectionGraphic.SetNodes(nodeView.RectTransform, nextNodeView.RectTransform);
             connectionGraphic.SetMode(UIConnectionGraphic.ConnectionMode.Solid);
             nodeView.Connections.Add(new ConnectionData(nodeView, nextNodeView, connectionGraphic));
 
@@ -105,52 +85,6 @@ namespace Rimus.Scripts.Map
             EditorUtility.SetDirty(connectionGraphic);
             EditorSceneManager.MarkSceneDirty(nodeView.gameObject.scene);
             Log.Info($"Created connection from node {nodeView.Node.Id} to node {nextNodeView.Node.Id}");
-        }
-        
-        private (RectTransform from, RectTransform to) GetConnectionAnchors(MapNodeView fromNode, MapNodeView toNode)
-        {
-            var fromAnchors = new[]
-            {
-                fromNode.ConnectionAnchors.Top,
-                fromNode.ConnectionAnchors.Bottom,
-                fromNode.ConnectionAnchors.Left,
-                fromNode.ConnectionAnchors.Right
-            };
-
-            var toAnchors = new[]
-            {
-                toNode.ConnectionAnchors.Top,
-                toNode.ConnectionAnchors.Bottom,
-                toNode.ConnectionAnchors.Left,
-                toNode.ConnectionAnchors.Right
-            };
-
-            RectTransform nearestFromAnchor = null;
-            RectTransform nearestToAnchor = null;
-            var shortestDistanceSqr = float.MaxValue;
-
-            foreach (var fromAnchor in fromAnchors)
-            {
-                foreach (var toAnchor in toAnchors)
-                {
-                    if (fromAnchor == null || toAnchor == null)
-                    {
-                        continue;
-                    }
-
-                    var distanceSqr = (fromAnchor.position - toAnchor.position).sqrMagnitude;
-                    if (distanceSqr >= shortestDistanceSqr)
-                    {
-                        continue;
-                    }
-
-                    shortestDistanceSqr = distanceSqr;
-                    nearestFromAnchor = fromAnchor;
-                    nearestToAnchor = toAnchor;
-                }
-            }
-
-            return (nearestFromAnchor, nearestToAnchor);
         }
     }
 }
